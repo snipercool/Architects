@@ -1,0 +1,26 @@
+$break-phone: 576px;
+$break-tablet: 768px;
+$break-tablet-land: 1024px;
+$break-laptop: 1200px;
+$break-desktop: 1440px;
+
+// ======================
+$transition-slow: all 600ms ease;
+$transition-fast: all 300ms ease;
+$letter-space: 0;
+$deg: 180deg;
+
+// FONTS =================
+$primary-font: "Roboto", sans-serif;
+
+$light: 300;
+$regular: 400;
+$medium: 500;
+$semibold: 600;
+$bold: bold;
+
+// COLORS==================
+$black: hsl(0, 0%, 8%);
+$white: hsl(0, 0%, 100%);
+$primary: hsl(38, 38%, 94%);
+$accent: hsl(214, 77%, 58%);

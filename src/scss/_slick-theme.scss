@@ -1,0 +1,195 @@
+@charset "UTF-8";
+
+// Default Variables
+
+// Slick icon entity codes outputs the following
+// "\2190" outputs ascii character "←"
+// "\2192" outputs ascii character "→"
+// "\2022" outputs ascii character "•"
+
+$slick-font-path: "../fonts/" !default;
+$slick-font-family: "slick" !default;
+$slick-loader-path: "../" !default;
+$slick-arrow-color: #141414 !default;
+$slick-dot-color: black !default;
+$slick-dot-color-active: $slick-dot-color !default;
+$slick-prev-character: "\2190" !default;
+$slick-next-character: "\2192" !default;
+$slick-dot-character: "\2022" !default;
+$slick-dot-size: 6px !default;
+$slick-opacity-default: 0.2 !default;
+$slick-opacity-on-hover: 0.6 !default;
+$slick-opacity-not-active: 0.15 !default;
+
+@function slick-image-url($url) {
+    @if function-exists(image-url) {
+        @return image-url($url);
+    }
+    @else {
+        @return url($slick-loader-path + $url);
+    }
+}
+
+@function slick-font-url($url) {
+    @if function-exists(font-url) {
+        @return font-url($url);
+    }
+    @else {
+        @return url($slick-font-path + $url);
+    }
+}
+
+/* Slider */
+
+.slick-list {
+    .slick-loading & {
+        background: #fff slick-image-url("ajax-loader.gif") center center no-repeat;
+    }
+}
+
+/* Icons */
+@if $slick-font-family == "slick" {
+    @font-face {
+        font-family: "slick";
+        src: slick-font-url("slick.eot");
+        src: slick-font-url("slick.eot?#iefix") format("embedded-opentype"), slick-font-url("slick.woff") format("woff"), slick-font-url("slick.ttf") format("truetype"), slick-font-url("slick.svg#slick") format("svg");
+        font-weight: normal;
+        font-style: normal;
+    }
+}
+
+/* Arrows */
+
+.slick-prev,
+.slick-next {
+    position: absolute;
+    display: block;
+    height: 50px;
+    width: 50px;
+    line-height: 0px;
+    font-size: 0px;
+    cursor: pointer;
+    background: $white;
+    border-radius: 40px;
+    color: transparent;
+    top: calc(50% - 25px);
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    padding: 0;
+    border: none;
+    outline: none;
+    opacity: 1;
+    transition: $transition-fast;
+    z-index: 1;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 6px;
+    &:hover, &:focus {
+        background: $accent;
+    }
+    &:before {
+        font-size: 35px;
+        width: 35px;
+        height: 35px;
+        line-height: 20px;
+        color: $black;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+.slick-prev {
+    left: -7px;
+    font-family: monospace;
+    -webkit-font-smoothing: antialiased;
+    [dir="rtl"] & {
+        left: auto;
+        right: -5px;
+    }
+    &:before {
+        content: url("data:image/svg+xml,%3Csvg fill='none' viewBox='0 0 24 24' height='24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath xmlns='http://www.w3.org/2000/svg' d='M14.7071 5.29289C15.0976 5.68342 15.0976 6.31658 14.7071 6.70711L9.41421 12L14.7071 17.2929C15.0976 17.6834 15.0976 18.3166 14.7071 18.7071C14.3166 19.0976 13.6834 19.0976 13.2929 18.7071L7.29289 12.7071C6.90237 12.3166 6.90237 11.6834 7.29289 11.2929L13.2929 5.29289C13.6834 4.90237 14.3166 4.90237 14.7071 5.29289Z' fill='%230D0D0D'%3E%3C/path%3E%3C/svg%3E");
+        [dir="rtl"] & {
+            content: url("data:image/svg+xml,%3Csvg fill='none' viewBox='0 0 24 24' height='24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath xmlns='http://www.w3.org/2000/svg' d='M14.7071 5.29289C15.0976 5.68342 15.0976 6.31658 14.7071 6.70711L9.41421 12L14.7071 17.2929C15.0976 17.6834 15.0976 18.3166 14.7071 18.7071C14.3166 19.0976 13.6834 19.0976 13.2929 18.7071L7.29289 12.7071C6.90237 12.3166 6.90237 11.6834 7.29289 11.2929L13.2929 5.29289C13.6834 4.90237 14.3166 4.90237 14.7071 5.29289Z' fill='%230D0D0D'%3E%3C/path%3E%3C/svg%3E");
+        }
+    }
+}
+
+.slick-next {
+    right: -7px;
+    font-family: monospace;
+    -webkit-font-smoothing: antialiased;
+    [dir="rtl"] & {
+        left: -5px;
+        right: auto;
+    }
+    &:before {
+        content: url("data:image/svg+xml,%3Csvg fill='none' viewBox='0 0 24 24' height='24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath xmlns='http://www.w3.org/2000/svg' d='M9.29289 18.7071C8.90237 18.3166 8.90237 17.6834 9.29289 17.2929L14.5858 12L9.29289 6.70711C8.90237 6.31658 8.90237 5.68342 9.29289 5.29289C9.68342 4.90237 10.3166 4.90237 10.7071 5.29289L16.7071 11.2929C17.0976 11.6834 17.0976 12.3166 16.7071 12.7071L10.7071 18.7071C10.3166 19.0976 9.68342 19.0976 9.29289 18.7071Z' fill='%230D0D0D'%3E%3C/path%3E%3C/svg%3E");
+        [dir="rtl"] & {
+            content: url("data:image/svg+xml,%3Csvg fill='none' viewBox='0 0 24 24' height='24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath xmlns='http://www.w3.org/2000/svg' d='M9.29289 18.7071C8.90237 18.3166 8.90237 17.6834 9.29289 17.2929L14.5858 12L9.29289 6.70711C8.90237 6.31658 8.90237 5.68342 9.29289 5.29289C9.68342 4.90237 10.3166 4.90237 10.7071 5.29289L16.7071 11.2929C17.0976 11.6834 17.0976 12.3166 16.7071 12.7071L10.7071 18.7071C10.3166 19.0976 9.68342 19.0976 9.29289 18.7071Z' fill='%230D0D0D'%3E%3C/path%3E%3C/svg%3E");
+        }
+    }
+}
+
+/* Dots */
+
+.slick-dotted.slick-slider {
+    margin-bottom: 30px;
+}
+
+.slick-dots {
+    position: absolute;
+    bottom: -25px;
+    list-style: none;
+    display: block;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    li {
+        position: relative;
+        display: inline-block;
+        height: 20px;
+        width: 20px;
+        margin: 0 5px;
+        padding: 0;
+        cursor: pointer;
+        button {
+            border: 0;
+            background: transparent;
+            display: block;
+            height: 20px;
+            width: 20px;
+            outline: none;
+            line-height: 0px;
+            font-size: 0px;
+            color: transparent;
+            padding: 5px;
+            cursor: pointer;
+            &:hover, &:focus {
+                outline: none;
+                &:before {
+                    opacity: $slick-opacity-on-hover;
+                }
+            }
+            &:before {
+                position: absolute;
+                top: 0;
+                left: 0;
+                content: $slick-dot-character;
+                width: 20px;
+                height: 20px;
+                font-family: $slick-font-family;
+                font-size: $slick-dot-size;
+                line-height: 20px;
+                text-align: center;
+                color: $slick-dot-color;
+                opacity: $slick-opacity-not-active;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+        }
+        &.slick-active button:before {
+            color: $slick-dot-color-active;
+            opacity: $slick-opacity-default;
+        }
+    }
+}
