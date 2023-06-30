@@ -1,8 +1,7 @@
-$break-phone: 576px;
+$break-phone: 640px;
 $break-tablet: 768px;
 $break-tablet-land: 1024px;
-$break-laptop: 1200px;
-$break-desktop: 1440px;
+$break-laptop: 1280px;
 
 // ======================
 $transition-slow: all 600ms ease;
@@ -22,5 +21,5 @@ $bold: bold;
 // COLORS==================
 $black: hsl(0, 0%, 8%);
 $white: hsl(0, 0%, 100%);
-$primary: hsl(38, 38%, 94%);
+$primary: hsl(35, 40%, 94%);
 $accent: hsl(214, 77%, 58%);

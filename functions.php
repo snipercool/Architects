@@ -151,7 +151,7 @@ function architects_scripts() {
 	wp_enqueue_style( 'animate-style', 'https://unpkg.com/aos@2.3.1/dist/aos.css', array(), _S_VERSION );
 
 	
-	wp_enqueue_script( 'architects-script', get_template_directory_uri() . '/dist/js/app.js', array('jquery'), _S_VERSION, true );
+	wp_enqueue_script( 'architects-script', get_template_directory_uri() . '/dist/js/app.min.js', array('jquery'), _S_VERSION, true );
 	wp_localize_script( 'architects-script', 'ajax_object', array(
 		'ajax_url' => admin_url('admin-ajax.php'), 
 		'posts' => json_encode( $wp_query->query_vars ), // everything about your loop is here
@@ -192,10 +192,10 @@ function my_acf_init_block_types() {
     if( function_exists('acf_register_block_type') ) { 
 		//Text with image - 2 sections
         acf_register_block_type(array(
-            'name'              => 'twi-two',
-            'title'             => __('Text with image - 2 sections'),
-            'render_template'   => '/template-parts/block-text-with-image.php',
-            'category'          => 'achilles',
+            'name'              => 'text-with-image',
+            'title'             => __('Text with image'),
+            'render_template'   => '/template-parts/image-with-text.php',
+            'category'          => 'architects',
             'icon'              => 'align-pull-right',
             'keywords'          => array('images', 'text', 'block'),
         ));
