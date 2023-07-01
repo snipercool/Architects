@@ -1,20 +1,44 @@
 header {
-  position: fixed;
-  display: block;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 60px;
-  background: rgba(255, 255, 255, 0.92);
-  z-index: 3;
-  will-change: transform;
-  -webkit-transform: 0.5s cubic-bezier(0.694, 0.048, 0.335, 1);
-  transition: transform 0.5s cubic-bezier(0.694, 0.048, 0.335, 1);
-  transition: transform 0.5s cubic-bezier(0.694, 0.048, 0.335, 1);
-  -webkit-transform: 0.5s cubic-bezier(0.694, 0.048, 0.335, 1);
-  transform: translateY(0);
-  -webkit-transform: translateY(0);
-  isolation: isolate;
-  
-    
+  height: 5rem;
+  z-index: 10;
+  padding-inline: 1.5rem;
+  padding-block: 0.5rem;
+  align-content: space-between;
+  @media screen and (min-width: $break-tablet-land) {
+    padding-inline: 4rem;
+    padding-block: 0rem;
+  }  
+
+  .logo{
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+    font-family: "Poor Richard", sans-serif;
+    text-transform: capitalize;
+    color: $black;
+    text-decoration: none;
+  }
+  nav{
+    ul{
+      padding-top: 1rem;
+      @media screen and (min-width: $break-tablet-land) {
+        padding-top: 0rem;
+      }
+      li {
+        list-style-type: none;
+        a{
+          padding-block: 1rem;
+          padding-inline: 0rem;
+          text-decoration: 0;
+          :last-of-type{
+            margin-bottom: 0.5rem;
+          }
+          @media screen and (min-width: $break-tablet-land) {
+            padding: 1.25rem;
+          }
+          
+        }
+      }
+      
+    }
+  }
   }
