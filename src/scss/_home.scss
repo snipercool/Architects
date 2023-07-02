@@ -1,0 +1,39 @@
+#home-slider{
+    .container{
+        padding-inline: 1.5rem;
+        max-width: 42rem;
+        @media screen and (min-width: $break-tablet-land) {
+            padding-inline: 4rem;
+          } 
+    }
+}
+
+.grid-projects{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    .project{
+        grid-column: span 3 / span 3;
+        @media screen and (min-width: $break-tablet-land) {
+            grid-column: span 1 / span 1;
+        }
+        &:first-child{
+            @media screen and (min-width: $break-tablet-land) {
+                grid-column: span 2 / span 2;
+                grid-row: span 2 / span 2;
+                h2{
+                    font-size: 3.75rem;
+                    bottom: 3rem;
+                  }
+                p{
+                    font-size: 1.5rem;
+                    right: calc(25% - 3.5rem);
+                }
+                &:hover button {
+                    transform: scale(35);
+                    @media screen and (min-width: $break-tablet-land) {
+                        transform: scale(45);
+                    } 
+                }
+              } 
+        }
+    }
+}

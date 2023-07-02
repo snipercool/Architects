@@ -1,11 +1,7 @@
-import $ from 'jquery';
 import "slick-carousel";
 import AOS from 'aos';
-//import ScrollMagic from 'scrollmagic';
-import responsiveLazyload from 'responsive-lazyload';
 
-responsiveLazyload();
-
+const $ = jQuery;
 $(document).ready(function () {
   AOS.init({
     offset: 0,
@@ -33,27 +29,26 @@ $(document).ready(function () {
 
   /* Slick sliders */
 
-  $("#company_slider").slick({
-    dots: false,
+  $("#home-slider").slick({
+    dots: true,
     draggable: true,
     centerMode: false,
-    slidesToShow: 3,
-    slidesToScroll: 3,
+    slidesToShow: 1,
+    slidesToScroll: 1,
     infinite: true,
-    arrows: true,
-    responsive: [
-        {
-          breakpoint: 576,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            arrows: false,
-          }
-        }
-      ]
+    arrows: false,
+    autoplay: true,
+    autospeed: 4000,
+    fade: true,
   })
   
   /* Ajax calls */
 
+  $("#Category_filter button").on("click", function(event) {
+    console.log('search clicked');
+      event.preventDefault();
+      var category = this.id;
+      console.log(category);
+  });
 
 });

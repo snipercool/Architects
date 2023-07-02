@@ -151,13 +151,7 @@ function architects_scripts() {
 	wp_enqueue_style( 'animate-style', 'https://unpkg.com/aos@2.3.1/dist/aos.css', array(), _S_VERSION );
 
 	
-	wp_enqueue_script( 'architects-script', get_template_directory_uri() . '/dist/js/app.min.js', array('jquery'), _S_VERSION, true );
-	wp_localize_script( 'architects-script', 'ajax_object', array(
-		'ajax_url' => admin_url('admin-ajax.php'), 
-		'posts' => json_encode( $wp_query->query_vars ), // everything about your loop is here
-		'current_page' => $wp_query->query_vars['paged'] ? $wp_query->query_vars['paged'] : 1,
-		'max_page' => $wp_query->max_num_pages
-	));
+	wp_enqueue_script( 'architects-script', get_template_directory_uri() . '/dist/js/app.js', array('jquery'), _S_VERSION, true );
 }
 add_action( 'wp_enqueue_scripts', 'architects_scripts' );
 

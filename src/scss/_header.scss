@@ -1,6 +1,7 @@
 header {
   height: 5rem;
-  z-index: 10;
+  top: 0;
+  z-index: 9999;
   padding-inline: 1.5rem;
   padding-block: 0.5rem;
   align-content: space-between;
@@ -17,25 +18,71 @@ header {
     color: $black;
     text-decoration: none;
   }
-  nav{
+  .menu-primary-container{
     ul{
+      align-items: center;
+      justify-content: space-between;
+      font-size: 1.25rem;
+      color: $black;
       padding-top: 1rem;
       @media screen and (min-width: $break-tablet-land) {
         padding-top: 0rem;
+        display: flex;
       }
       li {
         list-style-type: none;
+        transition: $transition-fast;
         a{
           padding-block: 1rem;
           padding-inline: 0rem;
           text-decoration: 0;
+          color: $black;
+          display: block;
           :last-of-type{
             margin-bottom: 0.5rem;
           }
           @media screen and (min-width: $break-tablet-land) {
             padding: 1.25rem;
           }
-          
+        }
+        &:hover {
+          .sub-menu{
+            visibility: visible;
+            opacity: 1;
+          }
+        }
+        .sub-menu{
+          display: flex;
+          position: absolute;
+          width: 100%;
+          background-color: $primary;
+          left: 0;
+          padding-left: 0;
+          opacity: 0;
+          transition: $transition-fast;
+          flex-direction: column;
+          visibility: hidden;
+          @media screen and (min-width: $break-tablet-land) {
+            flex-direction: row;
+          }
+          li{
+            width: 100%;
+            text-align: left;
+            @media screen and (min-width: $break-tablet-land) {
+              width: 25%;
+              text-align: center;
+            }
+            a{
+              transition: $transition-fast;
+              padding-block: 1.5rem;
+              @media screen and (min-width: $break-tablet-land) {
+                padding-block: 4rem;
+              }
+              &:hover{
+                background-color: white;
+              }
+            }
+          }
         }
       }
       

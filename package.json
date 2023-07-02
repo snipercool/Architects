@@ -17,6 +17,7 @@
     "url": "https://github.com/Automattic/_s/issues"
   },
   "dependencies": {
+    "aos": "^2.3.4",
     "autoprefixer": "^10.4.2",
     "browser-sync": "^2.27.7",
     "copyfiles": "^2.4.1",
@@ -27,12 +28,22 @@
     "npm-run-all": "^4.1.5",
     "onchange": "^7.1.0",
     "postcss-cli": "^9.1.0",
-    "sass": "^1.49.8"
+    "sass": "^1.49.8",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
+    "@babel/cli": "^7.22.5",
+    "@babel/core": "^7.22.5",
+    "@babel/preset-env": "^7.22.5",
     "@wordpress/scripts": "^23.3.0",
+    "babel-loader": "^9.1.2",
     "dir-archiver": "^1.1.1",
-    "rtlcss": "^3.5.0"
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "openssl": "^2.0.0",
+    "rtlcss": "^2.5.0",
+    "webpack-stream": "^6.1.2"
   },
   "rtlcssConfig": {
     "options": {
@@ -49,14 +60,14 @@
   },
   "scripts": {
     "build:sass": "sass  --no-source-map ./src/scss:dist/css",
-    "build:js": "terser ./src/js/*.js -o dist/js/app.min.js",
-    "copy:assets": "copyfiles -u 1 ./src/assets/**/* dist",
-    "copy:html": "copyfiles -u 1 ./src/*.html dist",
+    "build:js": "npx webpack --config webpack.config.js",
+    "copy:images": "copyfiles -u 1 ./src/images/**/* dist",
+    "copy:fonts": "copyfiles -u 1 ./src/fonts/* dist",
     "copy": "npm-run-all --parallel copy:*",
-    "watch:assets": "onchange \"src/assets/**/*\" -- npm run copy:html",
-    "watch:html": "onchange \"src/*.html\" -- npm run copy:html",
+    "watch:images": "onchange \"src/images/**/*\" -- npm run copy:html",
+    "watch:fonts": "onchange \"src/fonts/*\" -- npm run copy:html",
     "watch:sass": "sass  --no-source-map --watch ./src/scss:dist/css",
-    "watch:js": "terser ./src/js/*.js -o dist/js/app.min.js",
+    "watch:js": "npx webpack --config webpack.config.js",
     "watch": "npm-run-all --parallel watch:*",
     "start": "npm-run-all copy --parallel watch",
     "build": "npm-run-all copy:html build:*",

@@ -26,7 +26,7 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'achillesdesign' ); ?></a>
 
-	<header class="flex h-20 flex-d-col-lg w-full flex-wrap align-center bg-transparent space-between absolute z-10">
+	<header class="flex h-20 flex-d-col-lg w-full  flex-wrap align-center bg-creme space-between absolute z-10">
     <div class="flex flex-1 align-center space-between">
       <a href="/" class="logo">
         ARCHITECTS
@@ -40,19 +40,6 @@
 	</div>
 
     <div class="hidden w-auto flex-lg align-center-lg" id="primary-menu">
-      <nav>
-        <ul class="align-center space-between fs-3 text-black flex-lg">
-          <li><a class="block" href="#">Home</a></li>
-          <li><a class="block" href="#">About</a></li>
-          <li class="relative"><a class="block" href="#">projecten</a>
-			<ul id="submenu" class="absolute">
-			<li><a class="block" href="#">projecten</a>
-			<li><a class="block" href="#">projecten</a>
-			<li><a class="block" href="#">projecten</a>
-			<li><a class="block" href="#">projecten</a>
-			</ul></li>
-          <li><a class="block" href="#">contact</a></li>
-        </ul>
-      </nav>
+		<?php wp_nav_menu( array( 'menu' => 'primary' ) );?>
     </div>
   </header>

@@ -1,0 +1,75 @@
+.project {
+    position: relative;
+    background-color: #fff;
+    overflow: hidden;
+    min-height: 200px;
+    aspect-ratio: 16/7;
+    h2 {
+      z-index: 99;
+      position: absolute;
+      bottom: 1rem;
+      right: calc(25% + 2rem);
+      font-size: 1.5rem;
+      font-weight: $bold;
+      color: #fff;
+    }
+    p {
+      z-index: 99;
+      position: absolute;
+      top: 1rem;
+      right: calc(25% - 2rem);
+      color: #333;
+      opacity: 0.7;
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      writing-mode: vertical-lr;
+      -webkit-transition: all 0.2s ease;
+      transition: all 0.2s ease;
+      text-transform: uppercase;
+    }
+    .pic {
+      z-index: 100;
+      background-size: cover;
+      background-position: center;
+      height: 100%;
+      width: 75%;
+      filter: grayscale(100%);
+      transition: $transition-fast;
+    }
+
+    button {
+      position: absolute;
+      right: 14px;
+      bottom: 14px;
+      width: 40px;
+      height: 40px;
+      background-color: $accent;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      outline:remremnone;
+      transition: all 0.3s ease;
+      mix-blend-mode: multiply;
+    }
+    .arrow{
+        bottom: 0.95rem;
+        right: 1.65rem;
+        position: absolute;
+    }
+
+    &:hover button {
+        transform: scale(14.5);
+        @media screen and (min-width: $break-tablet-land) {
+            transform: scale(20.5);
+        }  
+    }
+
+    &:hover p {
+      color: #fff;
+    }
+    
+    &:hover .pic {
+      filter: grayscale(0);
+      
+    }
+  }
