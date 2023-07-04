@@ -2,14 +2,23 @@
     position: relative;
     background-color: #fff;
     overflow: hidden;
-    min-height: 200px;
+    min-height: 167px;
     aspect-ratio: 16/7;
+    width: 100%;
+    margin: auto;
+    @media screen and (min-width: $break-tablet) {
+        min-height: 200px;
+        aspect-ratio: 16/7;
+        width: auto;
+        margin: unset;
+    } 
     h2 {
       z-index: 99;
       position: absolute;
       bottom: 1rem;
       right: calc(25% + 2rem);
       font-size: 1.5rem;
+      line-height: 2rem;
       font-weight: $bold;
       color: #fff;
       .price{
@@ -79,6 +88,10 @@
 
   .grid-projects{
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding-inline: 1.5rem;
+    @media screen and (min-width: $break-tablet-land) {
+        padding-inline: 4rem;
+    }
     .project{
         grid-column: span 3 / span 3;
         @media screen and (min-width: $break-tablet-land) {

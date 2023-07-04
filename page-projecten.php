@@ -22,11 +22,11 @@ $category_terms = get_terms( array(
 ?>
 
 	<main id="primary" class="site-main">
-		<div class="mt-8 mb-9 pt-9 px-10 container mx-auto">
+		<div class="mt-8 mb-9 pt-9 px-10-lg container mx-auto">
 			<h1><?php echo get_the_title(); ?></h1>
 		</div>
 		<?php if($category_terms):?>
-			<div id="category_filter" class="bg-creme px-10 container mx-auto flex flex-wrap gap-2">
+			<div id="category_filter" class="bg-creme px-10-lg container mx-auto flex flex-wrap gap-2">
 			<button class="button button-primary<?php echo ($category)? ' outlined': '' ?>">Alle</button>
 			<?php foreach ($category_terms as $cat):?>
 				<button id="<?php echo $cat->slug ?>" class="button button-primary<?php echo ($category == $cat->slug)? '': ' outlined' ?>"><?php echo $cat->name ?></button>
@@ -54,14 +54,15 @@ $category_terms = get_terms( array(
 					
 					$projects = new WP_Query($args);
 					if ($projects->have_posts()) :  $counter = 1;?>
-						<div id='grid-projects' class="mx-auto grid grid-projects grid-cols-3 grid-rows-3 gap-2 px-10 mt-9 mb-4">
+						<div id='grid-projects' class="mx-auto grid grid-projects grid-cols-3 grid-rows-3 gap-2 px-10-lg mt-9 mb-4">
 							<?php while ($projects->have_posts()) : $projects->the_post(); 
+								$terms = wp_get_post_terms( get_the_ID(), 'project_category' );
 								$project_classes = 'project';
 								if ($counter === 1 || ($counter - 5) % 6 === 0 || ($counter - 7) % 6 === 0) {
 										$project_classes .= ' big';
 									} ?>
 								<div class="<?php echo $project_classes; ?>" data-aos="fade-up">
-									<h2><?php the_title() ?></h2>
+									<h2 class="text-right"><?php echo the_title(); ?><br><span class="price"><?php echo ($terms[0]->slug == 'appartementen' || $terms[0]->slug == 'parkings' )?'vanaf:' : ''; ?> € <?php echo get_field('proj_price') ?></span></h2>
 									<p>Bekijk project</p>
 									<div class="pic" style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>)"></div>
 									<a class="project-link" href="<?php echo the_permalink(); ?>"></a>

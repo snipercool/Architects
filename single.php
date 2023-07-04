@@ -22,7 +22,7 @@ if ($terms[0]->slug == 'appartementen'){
 <div class="relative inset-0 z-0">
 	<div class="bg-white h-70 w-full ">
     	<div class="h-70 w-full bg-cover bg-p-c flex align-center" style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>)">
-    		<div class="container text-left px-10">
+    		<div class="container text-left px-10-lg">
 				<h1 class="fs-8<?php echo (get_field('proj_title_color'))?' text-black' : ' text-white' ?> font-medium mb-2"><?php the_title() ?></h1>
 				<?php echo $appsTotal; ?>
 				<a href="#" class="button button-secondary arrowed button-modal">Maak een afspraak</a>
@@ -31,7 +31,7 @@ if ($terms[0]->slug == 'appartementen'){
 	</div>
 </div>
 	<main id="primary" class="site-main">
-		<div class="grid project-info px-10 my-9 mx-auto container">
+		<div class="grid project-info px-10-lg my-9 mx-auto container">
 			<div class="info">
 				<h2 class="mb-5">Inleiding:</h2>
 				<?php echo get_field('inleiding_text') ?>
@@ -71,7 +71,7 @@ if ($terms[0]->slug == 'appartementen'){
 		<?php 
 		$gallery = get_field('proj_gallerij');
 		if($gallery): ?>
-		<div class="project-gallery px-10 mb-6 container mx-auto">
+		<div class="project-gallery px-10-lg mb-6 container mx-auto">
           <div class="project-image" data-aos="fade-up">
             <img class="active" src="<?php echo $gallery[0]; ?>">
           </div>

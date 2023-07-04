@@ -25,7 +25,7 @@
 				</div>
 			</div>
 		</div>
-	<footer id="footer" class="footer bg-creme mt-12 px-10" area-label="footer">
+	<footer id="footer" class="footer bg-creme mt-12 px-10-lg" area-label="footer">
 		<div class="my-5 bg-creme flex space-between">
 			<?php wp_nav_menu( array( 'menu' => 'footer' ) );?>
 			<div class="info">

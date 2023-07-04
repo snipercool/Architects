@@ -1,6 +1,12 @@
 #footer{
     background-color: $primary;
     color: $black;
+    &  :first-child, :last-child{
+        flex-direction: column;
+        @media screen and (min-width: $break-laptop) {
+            flex-direction: row;
+        } 
+    }
     a{
         color: #252525;
         text-decoration: none;
@@ -20,7 +26,12 @@
         }
     }
     .info{
-        text-align: end;
+        text-align: start;
+        margin-top: 2rem;
+        @media screen and (min-width: $break-tablet) {
+            text-align: end;
+            margin-top: 0;
+        } 
         a{
             color: #252525;
             text-decoration: none;
@@ -31,7 +42,12 @@
         }
     }
     .socials{
-        text-align: end;
+        text-align: start;
+        margin-top: 2rem;
+        @media screen and (min-width: $break-tablet) {
+            text-align: end;
+            margin-top: 0;
+        }
     }
     
 }

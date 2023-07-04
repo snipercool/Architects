@@ -20,8 +20,8 @@ $terms    = get_terms(['taxonomy' => 'project_category', 'hide_empty' => false])
 		<div id="home-slider" class="bg-white h-full w-full ">
 		<?php foreach ($terms as $term):?>
       <div class="h-full w-full bg-cover flex align-center" style="background-image: url(<?php echo get_field('category_image', $term->taxonomy . '_' . $term->term_id); ?>)">
-      	<div class="container<?php echo (get_field('home_title_color', $term->taxonomy . '_' . $term->term_id))? ' text-black' : ' text-white'; ?> text-left mx-10">
-			<h1 class="text-5xl font-medium mb-9"><?php echo get_field('home_title', $term->taxonomy . '_' . $term->term_id); ?></h1>
+      	<div class="container<?php echo (get_field('home_title_color', $term->taxonomy . '_' . $term->term_id))? ' text-black' : ' text-white'; ?> text-left">
+			<h1 class="font-medium mb-9"><?php echo get_field('home_title', $term->taxonomy . '_' . $term->term_id); ?></h1>
 			<a href="/projecten/?category=<?php echo $term->slug; ?>" class="button button-secondary arrowed">Bekijk <?php echo $term->name ?></a>
 		</div>
       </div>
@@ -46,7 +46,7 @@ $args = array(
   if ($query->have_posts()) :
   $counter = 1;
 ?>
-<div class="mx-auto grid grid-projects grid-cols-3 grid-rows-3 gap-2 px-10 mt-11 mb-4">
+<div class="mx-auto grid grid-projects grid-cols-3 grid-rows-3 gap-2 mt-11 mb-4">
 	<?php while ($query->have_posts()) : $query->the_post(); 
 	$terms = wp_get_post_terms( get_the_ID(), 'project_category' );
 	$project_classes = 'project';

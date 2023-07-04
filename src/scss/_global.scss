@@ -26,13 +26,18 @@ body {
 }
 
 h1{
-  font-size: 3.75rem;
-  line-height: 4rem;
+  font-size: 1.875rem;
+  line-height: 3.5rem;
   font-weight: $bold;
+  @media screen and (min-width: $break-tablet) {
+    font-size: 3.75rem;
+    line-height: 4.5rem;
+    font-weight: $bold;
+  }
 }
 h2{
   font-size: 2.25rem;
-  line-height: 2.5rem;
+  line-height: 2.75rem;
   font-weight: bold;
 }
 
@@ -652,5 +657,17 @@ $sizes:
   /*! #{$px} */
   .w-#{$name} {
     width: $size;
+  }
+  .mx-10-lg{
+    margin-inline: 1.5rem;
+    @media screen and (min-width: $break-tablet-land) {
+      margin-inline: 4rem;
+    }
+  }
+  .px-10-lg{
+    padding-inline: 1.5rem;
+    @media screen and (min-width: $break-tablet-land) {
+      padding-inline: 4rem;
+    }
   }
 }

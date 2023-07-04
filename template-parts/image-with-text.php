@@ -1,5 +1,5 @@
 <section class="text-w-image container mx-auto">
-    <div class="px-10 py-7 mx-auto">
+    <div class="px-10-lg py-7 mx-auto">
         <div class="flex-lg gap-8 align-center-lg<?php echo get_field('twi_reverse')?" flex-d-row-r" : ""; ?>">
             <img src="<?php echo get_field('twi_fi'); ?>"alt="">
 
