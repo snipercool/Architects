@@ -1,0 +1,28 @@
+#modal{
+    position: fixed;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    transition: $transition-slow;
+    &.hidden{
+        visibility: hidden;
+        pointer-events: none;
+        opacity: 0;
+    }
+    .modal{
+        &-overlay{
+            inset: 0;
+            background-color: rgba($color: #ffffff, $alpha: 0.66);
+        }
+        &-content{
+            width: 100%;
+            max-width: 42rem;
+            padding: 2rem;
+            background-color: #ffffff;
+        }
+        &-close-btn{
+            right: 0;
+            cursor: pointer;
+        }
+    }
+}

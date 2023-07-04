@@ -20,7 +20,7 @@ body {
   padding: 0;
   background-color: $primary;
   overflow-x: hidden;
-  &.overflow-hidden{
+  &.no-scroll{
     overflow: hidden;
   }
 }
@@ -160,6 +160,48 @@ h2{
 // ======== global =========
 // =========================
 
+//background
+
+.bg-contain{
+  background-size: contain;
+}
+
+.bg-cover{
+  background-size: cover;
+}
+
+.bg-norepeat{
+  background-repeat: no-repeat;
+}
+
+.bg-p-tl{
+  background-position: top left;
+}
+.bg-p-tc{
+  background-position: top center;
+}
+.bg-p-tr{
+  background-position: top right;
+}
+.bg-p-cl{
+  background-position: center left;
+}
+.bg-p-c{
+  background-position: center;
+}
+.bg-p-cr{
+  background-position: center right;
+}
+.bg-p-bl{
+  background-position: bottom left;
+}
+.bg-p-bc{
+  background-position: bottom center;
+}
+.bg-p-br{
+  background-position: bottom right;
+}
+
 //image
 .aspect-ratio{
   aspect-ratio: 16/9;
@@ -187,6 +229,11 @@ h2{
     max-width: 1280px;
   }
 }
+//font style
+.fw-b{
+  font-weight: $bold;
+}
+
 //text align
 .text-center {
   text-align: center;
@@ -394,6 +441,9 @@ h2{
 
 .h-full{
   height: 100vh;
+}
+.h-70{
+  height: 70vh;
 }
 .w-full{
   width: 100%;

@@ -6,26 +6,43 @@ $(document).ready(function () {
   AOS.init({
     offset: 0,
   });
-  //open hamburger menu
-  $('.hamburger-menu .ham').on("click", function() {
-    $(this).toggleClass('active');
-    $('.header-menu-container').toggleClass('open');
-    $('header').toggleClass('open-nav');
-    if($('.header-menu-container').hasClass('open')){
-      $('body').css('overflow', 'hidden');
-    } else{
-      $('body').css('overflow', 'auto');
-    }
-  })         
+  
+  /* Modal */
+  $('.button-modal').on("click", function(e) {
+    e.preventDefault();
+    openModal();
+  });
+  $('.modal-close-btn').on("click", function(e) {
+    closeModal();
+  });
+  $('.modal-overlay').on("click", function(e) {
+    closeModal();
+  });
 
-  //(on mobile) on menu click open sub menu
- 
-        $('.menu-item-has-children').on('click', function(){
-          if ($('header').hasClass('open-nav')) {
-            $(this).find('a').toggleClass('active');
-            $('.sub-menu').toggleClass('open');
-          }
-        });
+  function openModal() {
+    $('#modal').removeClass("hidden");
+    $('body').addClass('no-scroll');
+  }
+  function closeModal() {
+    $('#modal').addClass("hidden");
+    $('body').removeClass('no-scroll');
+  }
+
+  /* Project gallery */
+  const activeImage = $(".project-gallery .active");
+  const productImages = $(".project-image-list img");
+  
+  function changeImage(e) {
+    activeImage.fadeOut(300);
+    activeImage.attr("src", e.target.src);
+    activeImage.fadeIn(300);
+  }
+  
+  productImages.each(function() {
+    $(this).on("click", function(e) {
+      changeImage(e);
+    });
+  });
 
   /* Slick sliders */
 
@@ -44,11 +61,54 @@ $(document).ready(function () {
   
   /* Ajax calls */
 
-  $("#Category_filter button").on("click", function(event) {
-    console.log('search clicked');
+  $("#category_filter button").on("click", function(event) {
       event.preventDefault();
       var category = this.id;
-      console.log(category);
+      $("#category_filter button").each(function() {
+        if (!$(this).hasClass("outlined")) {
+          $(this).addClass("outlined");
+        }
+      });
+      $(this).removeClass('outlined');
+
+      var params = {};
+    if (category) {
+      params.category = category;
+    }
+    var queryString = $.param(params);
+      
+      $.ajax({
+        url: ajax_object.ajax_url,
+        type: 'POST',
+          data: {
+            action: 'get_filtered_projects',
+            category: category,
+          },
+        beforeSend: function(){
+          $("#grid-projects").fadeOut(600);
+        },
+        success: function(data) {
+          if (data) {
+            // Update the cases container with the filtered cases
+            document.getElementById('grid-projects').innerHTML = data;
+                
+            // Update the URL with the chosen industry and service
+            var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+            if (queryString) {
+              newUrl += '?' + queryString;
+            }
+            window.history.pushState({path: newUrl}, '', newUrl);    
+            $("#grid-projects").fadeIn(600);
+          } else {
+                document.getElementById('grid-projects').innerHTML = data;`<h1 style="text-align: center; color: black;">No cases found...</h1>`;
+          }
+              
+        },
+        error: function(xhr, status, error) {
+              console.log(xhr.responseText);
+                document.getElementById('grid-projects').innerHTML = data;`<h1 style="text-align: center; color: black;">Oops something went wrong...</h1>`;
+        }
+      });
   });
 
 });
