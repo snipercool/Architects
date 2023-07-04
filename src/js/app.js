@@ -6,11 +6,26 @@ $(document).ready(function () {
   AOS.init({
     offset: 0,
   });
+
+  //menu
+  $('.hamburger-menu').on("click", function(e) {
+    e.preventDefault();
+    toggleMenu();
+  });
+
+  function toggleMenu() {
+    $('#primary-menu').toggleClass("hidden");
+  }
+
   
   /* Modal */
   $('.button-modal').on("click", function(e) {
     e.preventDefault();
     openModal();
+  });
+  $('.contact-modal').on("click", function(e) {
+    e.preventDefault();
+    openContactModal();
   });
   $('.modal-close-btn').on("click", function(e) {
     closeModal();
@@ -23,8 +38,13 @@ $(document).ready(function () {
     $('#modal').removeClass("hidden");
     $('body').addClass('no-scroll');
   }
+  function openContactModal() {
+    $('#contact-modal').removeClass("hidden");
+    $('body').addClass('no-scroll');
+  }
   function closeModal() {
     $('#modal').addClass("hidden");
+    $('#contact-modal').addClass("hidden");
     $('body').removeClass('no-scroll');
   }
 

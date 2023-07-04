@@ -22,11 +22,11 @@ $category_terms = get_terms( array(
 ?>
 
 	<main id="primary" class="site-main">
-		<div class="mt-8 mb-9 pt-9 px-10">
+		<div class="mt-8 mb-9 pt-9 px-10 container mx-auto">
 			<h1><?php echo get_the_title(); ?></h1>
 		</div>
 		<?php if($category_terms):?>
-			<div id="category_filter" class="bg-creme px-10 container flex flex-wrap gap-2">
+			<div id="category_filter" class="bg-creme px-10 container mx-auto flex flex-wrap gap-2">
 			<button class="button button-primary<?php echo ($category)? ' outlined': '' ?>">Alle</button>
 			<?php foreach ($category_terms as $cat):?>
 				<button id="<?php echo $cat->slug ?>" class="button button-primary<?php echo ($category == $cat->slug)? '': ' outlined' ?>"><?php echo $cat->name ?></button>

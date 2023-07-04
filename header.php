@@ -27,19 +27,19 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'achillesdesign' ); ?></a>
 
 	<header class="flex h-20 flex-d-col-lg w-full  flex-wrap align-center bg-creme space-between absolute z-10">
-    <div class="flex flex-1 align-center space-between">
+    <div class="logo-cont flex flex-1 align-center space-between">
       <a href="/" class="logo">
         ARCHITECTS
       </a>
-    </div>
-
-    <div class="pointer hidden-lg hamburger-menu"
-      ><svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+	  <div class="pointer hidden-lg hamburger-menu">
+	  	<svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
         <title>menu</title>
         <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path></svg>
 	</div>
+    </div>
 
     <div class="hidden w-auto flex-lg align-center-lg" id="primary-menu">
 		<?php wp_nav_menu( array( 'menu' => 'primary' ) );?>
     </div>
   </header>
+  AuorA7co4kuBwfZIDA859y(p

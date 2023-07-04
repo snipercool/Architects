@@ -1,9 +1,10 @@
-#modal{
+#modal, #contact-modal{
     position: fixed;
     inset: 0;
     display: grid;
     place-items: center;
     transition: $transition-slow;
+    z-index: 9999;
     &.hidden{
         visibility: hidden;
         pointer-events: none;

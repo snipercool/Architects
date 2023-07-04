@@ -15,8 +15,8 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
-		<div class="mt-8 mb-9 pt-9 px-10">
+	<main id="primary" class="site-main container mx-auto">
+		<div class="mt-8 mb-9 pt-9 px-10 ">
 			<h1><?php echo get_the_title(); ?></h1>
 		</div>
 		<?php echo the_content(); ?>
