@@ -1,5 +1,37 @@
 #footer{
-    background-color: $black;
-    color: $white;
+    background-color: $primary;
+    color: $black;
+    a{
+        color: #252525;
+        text-decoration: none;
+        transition: $transition-fast;
+        &:hover{
+            color: $black;
+        }
+    }
+    ul{
+        padding-left: 0;
+        li{
+            list-style-type: none;
+            a{
+                color: $black;
+                text-decoration: none;
+            }
+        }
+    }
+    .info{
+        text-align: end;
+        a{
+            color: #252525;
+            text-decoration: none;
+            transition: $transition-fast;
+            &:hover{
+                color: $black;
+            }
+        }
+    }
+    .socials{
+        text-align: end;
+    }
     
 }
