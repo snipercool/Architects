@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "PoorRichard";
+  src: url("../fonts/PoorRichard.ttf");
+  src: url("../fonts/PoorRichard.woff") format("woff"), url("../fonts/PoorRichard.woff2") format("woff2");
+}
 * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -253,7 +258,7 @@ h2 {
   text-align: end;
 }
 @media all and (max-width: 640px) {
-  .text-right .ko-mobile {
+  .text-right.ko-mobile {
     text-align: end;
   }
 }
@@ -2606,7 +2611,7 @@ header {
 header .logo {
   font-size: 1.875rem;
   line-height: 2.25rem;
-  font-family: "Poor Richard", sans-serif;
+  font-family: "PoorRichard", sans-serif;
   text-transform: capitalize;
   color: hsl(0, 0%, 8%);
   text-decoration: none;

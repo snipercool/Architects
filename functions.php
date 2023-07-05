@@ -351,7 +351,7 @@ add_action( 'init', 'custom_post_tax' );
 			}
 			if ($terms[0]->slug == 'appartementen' || $terms[0]->slug == 'parkings' ){ $value = 'vanaf:';}else{ $value = '';}
             echo '<div class="'.$project_classes.'" data-aos="fade-up">';
-            echo '<h2 class="text-right">'.get_the_title().'<br><span class="price">'.$value.' € '.get_field('proj_price').'</span></h2>';
+            echo '<h2 class="text-right ko-mobile">'.get_the_title().'<br><span class="price">'.$value.' € '.get_field('proj_price').'</span></h2>';
             echo '<p>Bekijk project</p>';
             echo '<div class="pic" style="background-image: url(' . get_the_post_thumbnail_url() . ')"></div>';
             echo '<a class="project-link" href="'.the_permalink().'"></a>';

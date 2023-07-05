@@ -256,7 +256,7 @@ h2{
 }
 .text-right {
   text-align: end;
-  .ko-mobile{
+  &.ko-mobile{
     @media all and (max-width: $break-phone) {
       text-align: end;
     }

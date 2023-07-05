@@ -54,7 +54,7 @@ $args = array(
             $project_classes .= ' big';
         } ?>
 	<div class="<?php echo $project_classes; ?>">
-		<h2 class="text-right"><?php echo the_title() ?><br><span class="price"><?php echo ($terms[0]->slug == 'appartementen' || $terms[0]->slug == 'parkings' )?'vanaf:' : ''; ?> € <?php echo get_field('proj_price') ?></span></h2>
+		<h2 class="text-right ko-mobile"><?php echo the_title() ?><br><span class="price"><?php echo ($terms[0]->slug == 'appartementen' || $terms[0]->slug == 'parkings' )?'vanaf:' : ''; ?> € <?php echo get_field('proj_price') ?></span></h2>
 		<p>Bekijk project</p>
 		<div class="pic" style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>)"></div>
 		<a class="project-link" href="<?php echo the_permalink(); ?>"></a>

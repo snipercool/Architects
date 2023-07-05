@@ -10,8 +10,16 @@ $letter-space: 0;
 $deg: 180deg;
 
 // FONTS =================
-$primary-font: "Roboto", sans-serif;
 
+@font-face {
+    font-family: "PoorRichard";
+    src: url("../fonts/PoorRichard.ttf");
+    src: url("../fonts/PoorRichard.woff") format("woff"),
+    url("../fonts/PoorRichard.woff2") format("woff2")
+    }
+
+$primary-font: "Roboto", sans-serif;
+$logo-font: 'PoorRichard', sans-serif;
 $light: 300;
 $regular: 400;
 $medium: 500;
